@@ -1,0 +1,48 @@
+## FILTERED DMESG FROM LAVENDER ON DROIDAN BOOKWORM SNAPSHOT 24
+   ## Relevant information about errors with display
+
+de jul. 13 23:05:40 droidian kernel: Kernel command line: ramoops_memreserve=4M rcupdate.rcu_expedited=1 console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 androidboot.avb_version=1.0 androidboot.vbmeta.avb_version=1.0 console=tty0 androidboot.verifiedbootstate=orange androidboot.keymaster=1 root=PARTUUID=2390503b-e78d-3c03-2639-16d1e52ac0d3 androidboot.bootdevice=c0c4000.sdhci androidboot.serialno=6609c41f androidboot.cpuid=0x68454b27 androidboot.dp=0x0 androidboot.baseband=sdm mdss_mdp.panel=1:dsi:0:qcom,mdss_dsi_nt36672a_shenchao_fhdplus_video:config0:1:none:cfg:single_dsi skip_initramfs rootwait ro init=/init  androidboot.dtbo_idx=0 androidboot.fpsensor=fpc androidboot.secureboot=1 androidboot.hwc=Global androidboot.hwversion=1.
+
+droidian kernel: mdss_dsi_panel_init: Panel Name = shenchao nt36672a fhdplus video mode dsi panel
+droidian kernel: mdss_pll c994400.qcom,mdss_dsi_pll: Failed to create debugfs directory
+mdss_dsi_panel_timing_from_dt: found new timing "qcom,mdss_dsi_nt36672a_shenchao_fhdplus_video" (fffffff8f969b268)
+droidian kernel: mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-post-panel-on-command
+droidian kernel: mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-timing-switch-command 
+droidian kernel: mdss_dsi_panel_get_dsc_cfg_np: cannot find dsc config node:config0
+droidian kernel: mdss_dsi_parse_dms_config: dynamic switch feature enabled: 0
+droidian kernel: mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-lp-mode-on
+droidian kernel: mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-lp-mode-off
+droidian kernel: dyn_fps: min = 48, max = 60
+droidian kernel: mdss_dsi_parse_ctrl_params:4990 Unable to read qcom,display-id, data=0000000000000000,len=20
+droidian kernel: mdss_dsi_parse_gpio_params: bklt_en gpio not specified
+droidian kernel: msm_dss_get_res_byname: 'dsi_phy_regulator' resource not found
+mdss_dsi_retrieve_ctrl_resources+0x170/0x254->msm_dss_ioremap_byname: 'dsi_phy_regulator' msm_dss_get_res_byname failed
+droidian kernel: mdss_dsi_retrieve_ctrl_resources: ctrl_base=ffffff8008a7c000 ctrl_size=400 phy_base=ffffff8008a7e400 phy_size=588
+droidian kernel: dsi_panel_device_register: Continuous splash enabled
+droidian kernel: Unable to find fb node for device: c994000.qcom,mdss_dsi_ctrl0
+droidian kernel: Unable to find fb node for device: c994000.qcom,mdss_dsi_ctrl0
+-- Boot 615c96813d2f4285a3ec1a15289b374f --
+ droidian kernel: input: qpnp_pon as /devices/virtual/input/input0
+-- Boot f0afef0e76b448dfaccffd374512e66c --
+droidian kernel: mdss_register_panel: adding framebuffer device c994000.qcom,mdss_dsi_ctrl0
+droidian kernel: mdss_dsi_panel_reset, panel reset, enable = 1
+droidian kernel: mdss_dsi_ctrl_probe: Dsi Ctrl->0 initialized, DSI rev:0x20010000, PHY rev:0x2
+droidian kernel: mdss_dsi_ctrl_probe: DSI Ctrl name = MDSS DSI CTRL->1
+droidian kernel: mdss_dsi_pinctrl_init: failed to get pinctrl
+droidian kernel: mdss_dsi_ctrl_probe: failed to get pin resources
+droidian kernel: mdss_dsi_find_panel_of_node: cmdline:0:qcom,mdss_dsi_nt36672a_shenchao_fhdplus_video:config0:1:none:cfg:single_dsi panel_name:none
+droidian kernel: mdss_dsi_config_panel: can't find panel node 0:qcom,mdss_dsi_nt36672a_shenchao_fhdplus_video:config0:1:none:cfg:single_dsi
+droidian kernel: mdss_dsi_ctrl_probe: panel configuration failed
+droidian kernel: mdss_dsi_ctrl: probe of c996000.qcom,mdss_dsi_ctrl1 failed with error -22
+-- Boot 615c96813d2f4285a3ec1a15289b374f --
+droidian kernel: qcom,qpnp-power-on 800f000.qcom,spmi:qcom,pm660l@2:qcom,power-on@800: No PON config. specified
+-- Boot f0afef0e76b448dfaccffd374512e66c --
+droidian kernel: mdss_dsi_status_init: DSI status check interval:1000
+droidian kernel: mdss_dp_usbpd_setup: get_usbpd phandle failed (-11)
+droidian kernel: mdss_dp_probe: Error usbpd setup!
+droidian kernel: mdss_register_panel: adding framebuffer device soc:qcom,mdss_wb_panel
+droidian kernel: mdss_fb_probe: fb0: split_mode:0 left:0 right:0
+droidian kernel: mdss_fb_register: FrameBuffer[0] 1080x2340 registered successfully!
+droidian kernel: mdss_fb_probe: fb1: split_mode:0 left:0 right:0
+droidian kernel: mdss_fb_register: FrameBuffer[1] 640x480 registered successfully!
+
