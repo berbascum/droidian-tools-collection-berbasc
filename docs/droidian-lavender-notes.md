@@ -15,6 +15,11 @@ BOOKWORM BUGS
 - The problem did not exist since Droidian bullseye snapshot 22, so i'm currently testing on it.
 
 TESTING IN BULLSEYE
+INFO:
+  - ls /sys/class/leds/lcd-backlight/brightness
+       - -rw-r--r-- 1 system system 4096
+  - ls /sys/class/leds/lcd-backlight/brightness
+       - -rw-r--r-- 1 root root 4096 
 - After flashing Droidian rootfs snapshot 22, device boots fine and image is swhowed on screen.
 
 - After an update and upgrade (not dist-upgrade or full-upgrade) device reboot fine
