@@ -30,6 +30,12 @@ TESTING IN BUYSELLE
   - Apt-get update && apt-get upgrade
     - It upgrades android-system-gsi-28
 
+TO DO:
+- Save android-rootfs.img from bullseye to compare size and contents with the bookworm one.
+- Compare boot.img from zip with a yet booted one.
+
+
+
 ERRORS WHILE UPGRADING BULLSEYE
 - NEW VERSION: /etc/default/lxc-net…
   Job for lxc-net.service failed
