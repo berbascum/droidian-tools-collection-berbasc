@@ -20,10 +20,12 @@ TESTING IN BUYSELLE
 - After an update and upgrade (not dist-upgrade or full-upgrade) device reboot fine
 
 - In next steep i have updated from bookworm nightly rootfs.img next dirs:
-  - "etc/apt"
+  - "etc/apt": I find it mounting an unflashed rootfs.img
      $ rsync -av --del ./rootfs/etc/apt/  /etc/apt/ 
   - "usr/share/droidian-apt-config"
      $ rsync -av --del usr/share/droidian-apt-config/ /usr/share/droidian-apt-config/
   - "/var/lib/extrepo" (wich have updated keys for mobian and hybris repos)
   - Also needed download last Mobian repo key:
     $ wget -O - https://repo.mobian-project.org/mobian.gpg.key | sudo apt-key add -
+  - Apt-get update && apt-get upgrade
+    - It upgrades android-system-gsi-28
