@@ -14,7 +14,7 @@ BOOKWORM BUGS
 
 - The problem did not exist since Droidian bullseye snapshot 22, so i'm currently testing on it.
 
-TESTING IN BUYSELLE
+TESTING IN BULLSEYE
 - After flashing Droidian rootfs snapshot 22, device boots fine and image is swhowed on screen.
 
 - After an update and upgrade (not dist-upgrade or full-upgrade) device reboot fine
@@ -25,10 +25,20 @@ TESTING IN BUYSELLE
   - "usr/share/droidian-apt-config"
      $ rsync -av --del usr/share/droidian-apt-config/ /usr/share/droidian-apt-config/
   - "/var/lib/extrepo" (wich have updated keys for mobian and hybris repos)
+  - $ apt-get update
+  - $ apt-mark hold droidian-upgrade-bookworm
   - Also needed download last Mobian repo key:
     $ wget -O - https://repo.mobian-project.org/mobian.gpg.key | sudo apt-key add -
+  - $ apt-get update
+  - At this point lsb_release detects Codename: bullseye
+  - Reboot device
+
+
+
   - Apt-get update && apt-get upgrade
     - It upgrades android-system-gsi-28
+
+
 
 TO DO:
 - Save android-rootfs.img from bullseye to compare size and contents with the bookworm one.
