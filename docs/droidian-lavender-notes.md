@@ -29,3 +29,11 @@ TESTING IN BUYSELLE
     $ wget -O - https://repo.mobian-project.org/mobian.gpg.key | sudo apt-key add -
   - Apt-get update && apt-get upgrade
     - It upgrades android-system-gsi-28
+
+ERRORS WHILE UPGRADING BULLSEYE
+- NEW VERSION: /etc/default/lxc-net…
+  Job for lxc-net.service failed
+- keyboard-configuration (1.205)…
+  cat: '/sys/bus/usb/devices/*:*/bInterfaceClass': El fitxer o directori no existeix
+  cat: '/sys/bus/usb/devices/*:*/bInterfaceSubClass': El fitxer o directori no existeix
+  cat: '/sys/bus/usb/devices/*:*/bInterfaceProtocol': El fitxer o directori no existeix
