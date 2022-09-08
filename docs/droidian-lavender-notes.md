@@ -21,5 +21,9 @@ TESTING IN BUYSELLE
 
 - In next steep i have updated from bookworm nightly rootfs.img next dirs:
   - "etc/apt"
+     $ rsync -av --del ./rootfs/etc/apt/  /etc/apt/ 
   - "usr/share/droidian-apt-config"
+     $ rsync -av --del usr/share/droidian-apt-config/ /usr/share/droidian-apt-config/
   - "/var/lib/extrepo" (wich have updated keys for mobian and hybris repos)
+  - Also needed download last Mobian repo key:
+    $ wget -O - https://repo.mobian-project.org/mobian.gpg.key | sudo apt-key add -
