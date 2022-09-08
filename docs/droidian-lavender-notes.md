@@ -14,47 +14,22 @@ BOOKWORM BUGS
 
 - The problem did not exist since Droidian bullseye snapshot 22, so i'm currently testing on it.
 
-TESTING IN BULLSEYE
-INFO:
-  - ls /sys/class/leds/lcd-backlight/brightness
-       - -rw-r--r-- 1 system system 4096
-  - ls /sys/class/leds/lcd-backlight/brightness
-       - -rw-r--r-- 1 root root 4096 
-- After flashing Droidian rootfs snapshot 22, device boots fine and image is swhowed on screen.
-
-- After an update and upgrade (not dist-upgrade or full-upgrade) device reboot fine
-
-- In next steep i have updated from bookworm nightly rootfs.img next dirs:
-  - "etc/apt": I find it mounting an unflashed rootfs.img
-     $ rsync -av --del ./rootfs/etc/apt/  /etc/apt/ 
-  - "usr/share/droidian-apt-config"
-     $ rsync -av --del usr/share/droidian-apt-config/ /usr/share/droidian-apt-config/
-  - "/var/lib/extrepo" (wich have updated keys for mobian and hybris repos)
-  - $ apt-get update
-  - $ apt-mark hold droidian-upgrade-bookworm
-  - Also needed download last Mobian repo key:
-    $ wget -O - https://repo.mobian-project.org/mobian.gpg.key | sudo apt-key add -
-  - $ apt-get update
-  - At this point lsb_release detects Codename: bullseye
-  - Reboot device
+SOLVED:
+The problem is caused by missing udev rules.
+Also patches for device led.
+Simply add "/etc/udev/rules.d/90-backlght.rules" with the contents:
+#Rules to allow controlling of backlight and leds for video group
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"
+ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp input /sys/class/leds/%k/brightness"
+ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chmod g+w /sys/class/leds/%k/brightness"
 
 
-
-  - Apt-get update && apt-get upgrade
-    - It upgrades android-system-gsi-28
-
-
+The solution has taken from the next url:
+https://gitlab.com/Bettehem/op3-gsi-fix-droidian/-/blob/main/gsi-fix/files/90-backlight.rules
+Also there are other gsi fixes that may been usefull.
 
 TO DO:
-- Save android-rootfs.img from bullseye to compare size and contents with the bookworm one.
+
 - Compare boot.img from zip with a yet booted one.
-
-
-
-ERRORS WHILE UPGRADING BULLSEYE
-- NEW VERSION: /etc/default/lxc-net…
-  Job for lxc-net.service failed
-- keyboard-configuration (1.205)…
-  cat: '/sys/bus/usb/devices/*:*/bInterfaceClass': El fitxer o directori no existeix
-  cat: '/sys/bus/usb/devices/*:*/bInterfaceSubClass': El fitxer o directori no existeix
-  cat: '/sys/bus/usb/devices/*:*/bInterfaceProtocol': El fitxer o directori no existeix
+- Create fastboot rootfs image.
