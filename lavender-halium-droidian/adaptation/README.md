@@ -1,15 +1,42 @@
-ADAPTATION FILES FOR LAVENDER
+## Adaptation files for Xiaomi Redmi Note 7 (lavender) running Droidian Bookworm.
+In this folder you will find some adaptation zips with fixes and customizations for **xiaomi lavender**. 
+The zips are prepared to be flashed from a custom recovery.
+
+## List of files
+### 1. Fix blackscreen:
+> Download: [droidian-unofficial-recovery-adaptation-blackscreen-fix-lavender_2022-09-11.zip](https://github.com/berbascum/droidian-tools-collection-unofficial/blob/main/lavender-halium-droidian/adaptation/droidian-unofficial-recovery-adaptation-blackscreen-fix-lavender_2022-09-11.zip).
+
+This zip fixes the black screen issue after booting Droidian.
+This fix can solve the problem if phosh service can start, and you can establish a RNDIS ssh connection to device.
+To trouble if this is your scenario, after connecting over ssh, try this command:
+
+> Also works on One Plus 3, so may work on other devices.
+```
+echo "2047" >> /sys/class/leds/lcd-backlight/brightness
+```
+If the screen appears, probably this fix will help you!
+
+> This zip only contains the black screen fix so you can try it without other fixes or customizations.
 
 
-- droidian-unnoficial-recovery-flashing-fix-blackscreen-lavender_2022-09-11.zip
-  This zip fixes the black screen after boot on xiaomi lavender by adding some udev rules.
-  Also works on One Plus 3, so may work on other devices.
-  This zip has only blackscreen fix.
 
-- droidian-unnoficial-recovery-flashing-adaptation-lavender_2022-09-11.zip
-  This zip includes the above  backscreen light and:
-  - Changes any scale = 3 to scale = 2
-    A service scans it every boot.
-  - Applies a fix to bluebinder.service that crashes in lavender while booting.
+### 2. General fixes for xiaomi lavender:
+Download: [droidian-unofficial-recovery-adaptation-lavender_2022-09-11.zip](https://github.com/berbascum/droidian-tools-collection-unofficial/blob/main/lavender-halium-droidian/adaptation/droidian-unofficial-recovery-adaptation-lavender_2022-09-11.zip).
 
-Thanks to Droidian Team for their help!
+This zip applyes all tested fixes for **xiaomi lavender** running Droidian.
+Currently supports **two** fixes:
+#### - Black screen fix:
+  > Same as fix 1.
+#### - Bluebinder service chash fix
+  Bluebinder service crashes on **xiaomi lavender** while booting, and bluetooth can not be started once device is booted.
+  > Thies fix solves this problem.
+
+
+### 3. Custom phoc.ini scale to "2":
+> Download: [droidian-unofficial-recovery-adaptation-scale-2_2022-09-11.zip](https://github.com/berbascum/droidian-tools-collection-unofficial/blob/main/lavender-halium-droidian/adaptation/droidian-unofficial-recovery-adaptation-scale-2_2022-09-11.zip).
+
+This zip changes any **scale = 3** existing value in **phoc.ini** to **scale = 2**. When it's applied just after flashing Droidian rootfs, the changes will take effect in first boot.
+> Whith scale != 3, Droidian 1st time configuration assistant is not usable on portrait mode, but it is in landscape.
+
+ \
+Thanks to Droidian Team for their constant help!
