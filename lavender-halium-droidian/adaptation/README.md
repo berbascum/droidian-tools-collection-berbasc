@@ -13,7 +13,7 @@ To trouble if this is your scenario, after connecting over ssh, try this command
 ```
 cat /sys/class/leds/lcd-backlight/max_brightness > /sys/class/leds/lcd-backlight/brightness
 ```
-If the screen appears, probably this fix will help you, but must be noted that i have tested only on **xiaomi lavender**!
+If the screen appears, probably this fix will help you, but must be noted that i have only tested on **xiaomi lavender**!
 > I have take the rules applied by this zip from a One Plus 3 image, so it may work on other devices.
  \
  \
