@@ -10,12 +10,13 @@ This zip fixes the black screen issue after booting Droidian.
 This fix can solve the problem if phosh service can start, and you can establish a RNDIS ssh connection to device.
 To trouble if this is your scenario, after connecting over ssh, try this command:
 
-> Also works on One Plus 3, so may work on other devices.
 ```
-echo "2047" >> /sys/class/leds/lcd-backlight/brightness
+cat /sys/class/leds/lcd-backlight/max_brightness > /sys/class/leds/lcd-backlight/brightness
 ```
-If the screen appears, probably this fix will help you!
-
+If the screen appears, probably this fix will help you, but must be noted that i have tested only on **xiaomi lavender**!
+> I have take the rules applied by this zip from a One Plus 3 image, so it may work on other devices.
+ \
+ \
 > This zip only contains the black screen fix so you can try it without other fixes or customizations.
 
 
@@ -23,7 +24,7 @@ If the screen appears, probably this fix will help you!
 ### 2. General fixes for xiaomi lavender:
 Download: [droidian-unofficial-recovery-adaptation-lavender_2022-09-11.zip](https://github.com/berbascum/droidian-tools-collection-unofficial/blob/main/lavender-halium-droidian/adaptation/droidian-unofficial-recovery-adaptation-lavender_2022-09-11.zip).
 
-This zip applyes all tested fixes for **xiaomi lavender** running Droidian.
+This zip applies all tested fixes for **xiaomi lavender** running Droidian.
 Currently supports **two** fixes:
 #### - Black screen fix:
   > Same as fix 1.
