@@ -1,0 +1,22 @@
+# Ofono mobile telephony stack
+[Unit]
+Description=Ofono mobile telephony stack
+Requires=dbus.service
+After=dbus.service android.mount
+
+[Service]
+Type=dbus
+BusName=org.ofono
+User=root
+ExecStart=
+#ExecStart=/usr/sbin/ofonod --nodetach
+ExecStart=/usr/sbin/ofonod -n -P provision,udev*,dun*,smart,*hfp_bluez5,stktest,sap --nobacktrace
+ExecReload=/usr/bin/sh -c "pkill -9 ofonod; sleep 3; /usr/sbin/ofonod -n -P provision,udev*,dun*,smart*,hfp_bluez5,stktest,sap --nobacktrace"
+ExecStop=/usr/bin/pkill -9 ofonod
+StandardError=null
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=graphical.target
+
